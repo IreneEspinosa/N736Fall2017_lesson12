@@ -85,4 +85,5 @@ proc glm data=helpmkh_addpssfr3;
   class pssfr3;
   model indtot = pssfr3;
   means pssfr3 / bon sidak hovtest welch;
+  lsmeans pssfr3 / pdiff=all adjust=tukey;
   run;
