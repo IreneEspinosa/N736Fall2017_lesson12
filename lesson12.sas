@@ -30,7 +30,7 @@ proc reg data=helpmkh;
 * proc glm option to get
   type I and type III SS;
 
-proc glm data=helpmkh_addpssfr3;
+proc glm data=helpmkh;
   model indtot = cesd;
   run;
 
