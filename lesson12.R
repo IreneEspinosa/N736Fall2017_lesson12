@@ -63,6 +63,9 @@ plot(fit1)
 # reset par
 par(mfrow=c(1,1))
 
+# histogram of the residuala
+hist(fit1$residuals)
+
 # see the coefficients
 coefficients(fit1)
 
@@ -79,6 +82,14 @@ anova(fit1)
 library(car)
 car::Anova(fit1, type=3)
 
+# add 95% confidence intervals
+car::scatterplot(indtot ~ cesd, data=h2,
+                 boxplot=FALSE)
+
+ggplot(h2, aes(cesd, indtot)) +
+  geom_point() +
+  stat_smooth(method = lm)
+
 # use the car package to get additional diagnostics
 # and plotting options
 
@@ -94,6 +105,8 @@ car::crPlots(fit1)
 car::ncvTest(fit1)
 
 # also look at the spreadLevelPlot
+# this also provides a suggestion of 
+# possible power transformation
 car::spreadLevelPlot(fit1)
 
 # this suggests a power transformation
